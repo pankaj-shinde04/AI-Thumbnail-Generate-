@@ -1,0 +1,139 @@
+/* ========================================
+   PIXELS LANDING PAGE — TAILWIND V4 CONFIG
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+/* ─── Design Tokens ─── */
+@theme {
+  --color-bg: #0F172A;
+  --color-surface: #1E293B;
+  --color-primary: #6366F1;
+  --color-primary-hover: #4F46E5;
+  --color-secondary: #8B5CF6;
+  --color-accent: #06B6D4;
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #94A3B8;
+
+  --color-primary-glow: rgba(99, 102, 241, 0.35);
+  --color-secondary-glow: rgba(139, 92, 246, 0.25);
+  --color-surface-border: rgba(99, 102, 241, 0.15);
+
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-sans: var(--font-body);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-gradient-shift: gradient-shift 4s ease infinite;
+}
+
+/* ─── Base Reset ─── */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+}
+
+input, textarea {
+  font-family: var(--font-body);
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--color-text-primary);
+}
+
+/* ─── Gradient Animation ─── */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ─── Custom Utilities ─── */
+@utility text-gradient-hero {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 40%, var(--color-accent) 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: var(--animate-gradient-shift);
+}
+
+@utility text-gradient-brand {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@utility text-gradient-cta {
+  background: linear-gradient(to right, var(--color-text-primary), var(--color-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@utility card-glow {
+  box-shadow: 0 20px 50px -15px rgba(99, 102, 241, 0.15);
+}
+
+@utility btn-glow {
+  box-shadow: 0 0 30px var(--color-primary-glow);
+}
+
+@utility hero-image-shadow {
+  box-shadow:
+    0 25px 80px -20px rgba(99, 102, 241, 0.25),
+    0 0 0 1px rgba(99, 102, 241, 0.05);
+}
+
+/* Marquee mask */
+@utility marquee-mask {
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
