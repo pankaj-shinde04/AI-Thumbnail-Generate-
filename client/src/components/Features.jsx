@@ -3,8 +3,8 @@ import { fadeUp, scaleUp, viewport } from '../lib/motion';
 
 const featureCards = [
   {
-    title: 'Lightning-fast setup',
-    description: 'Launch production-ready pages in minutes with prebuilt components.',
+    title: 'Smart Analysis',
+    description: 'Our AI analyzes your design and generates clean, semantic code.',
     icon: (
       <svg width="31" height="34" viewBox="0 0 31 34" fill="none">
         <path d="M2.616 20.2a1.62 1.62 0 0 1-1.458-.91 1.59 1.59 0 0 1 .202-1.698L17.304 1.276a.806.806 0 0 1 1.385.736l-3.092 9.63a1.59 1.59 0 0 0 .765 1.978c.231.12.488.182.749.18h11.273a1.62 1.62 0 0 1 1.458.91 1.59 1.59 0 0 1-.202 1.698L13.696 32.724a.807.807 0 0 1-1.385-.736l3.092-9.63a1.59 1.59 0 0 0-.765-1.978 1.6 1.6 0 0 0-.748-.18z"
@@ -19,8 +19,8 @@ const featureCards = [
     highlighted: false,
   },
   {
-    title: 'Pixel perfect',
-    description: 'Modern Figma-driven UI that translates to exact code.',
+    title: 'Eye-catching designs',
+    description: 'Generate stunning thumbnails that attract clicks and boost engagement.',
     icon: (
       <svg width="33" height="34" viewBox="0 0 33 34" fill="none">
         <path d="M8.617 13.777V32.43" stroke="url(#thumb1)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -39,8 +39,8 @@ const featureCards = [
     highlighted: true,
   },
   {
-    title: 'Highly customizable',
-    description: 'Utility-first classes make customization trivial.',
+    title: 'Fully editable',
+    description: 'All generated code is clean, semantic, and easy to customize to fit your needs.',
     icon: (
       <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
         <path d="M12.278 23.072c6 0 10.864-4.864 10.864-10.863 0-6-4.864-10.863-10.864-10.863S1.414 6.209 1.414 12.209s4.864 10.863 10.864 10.863"
@@ -77,7 +77,7 @@ function SectionHeader() {
         What you get
       </h2>
       <p className="mt-4 text-text-secondary text-lg">
-        Components, patterns and pages — everything you need to ship.
+        Create stunning, thumbnails that get clicks, without the hassle.
       </p>
     </motion.div>
   );
@@ -129,8 +129,7 @@ export default function Features() {
           variants={fadeUp}
           className="relative text-xl md:text-2xl text-text-primary font-medium text-center max-w-3xl mx-auto mb-12 leading-relaxed"
         >
-          We help you build faster by transforming your design vision into fully functional,
-          production-ready UI components.
+          Our AI Understands your design and generates clean, semantic code that’s easy to customize.
         </motion.p>
 
         <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -173,16 +172,16 @@ export default function Features() {
               variants={fadeUp}
             >
               <h3 className="font-heading text-2xl font-bold text-text-primary mb-3">
-                Better design with highest revenue and profits
+                Boost your productivity with AI-powered code generation
               </h3>
               <p className="text-text-secondary mb-4">
-                Empowers you to build beautifully and scale effortlessly.
+                Say goodbye to manual coding and hello to instant, high-quality code that brings your designs to life in seconds.
               </p>
               <a
                 href="#"
                 className="inline-flex items-center gap-2 text-primary hover:text-accent font-medium transition-colors group"
               >
-                Learn more about the product
+               Start generating free.
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">
                   <path d="M7 7h10v10" />
                   <path d="M7 17 17 7" />

@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const MotionLink = motion.create(Link);
@@ -23,25 +23,45 @@ const navVariants = {
   },
 };
 
-const links = [
-  { label: 'Home', to: '/', sectionId: null },
-  { label: 'Generate', to: '/generate', sectionId: 'generate' },
-  { label: 'Testimonials', to: '/testimonials', sectionId: 'testimonials' },
-  { label: 'Pricing', to: '/pricing', sectionId: 'pricing' },
-];
-
 export default function Navbar() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const isHomePage = location.pathname === '/';
+
+  const links = [
+    { label: 'Home', to: '/', sectionId: null },
+    { label: 'Generate', to: '/generate', sectionId: null },
+    { label: 'My Generation', to: '/my-generation', sectionId: null },
+    ...(isHomePage
+      ? [
+          { label: 'Testimonials', to: '/', sectionId: 'testimonials' },
+          { label: 'Pricing', to: '/', sectionId: 'pricing' },
+        ]
+      : []),
+  ];
 
   const handleNavClick = useCallback((e, link) => {
     e.preventDefault();
     setMenuOpen(false);
 
     const runScroll = () => {
-      scrollToSection(link.sectionId);
-      navigate(link.to, { replace: true });
+      if (link.sectionId) {
+        if (location.pathname === '/') {
+          scrollToSection(link.sectionId);
+        } else {
+          navigate(`/#${link.sectionId}`);
+        }
+        return;
+      }
+
+      if (link.to === '/' && location.pathname === '/') {
+        scrollToSection(null);
+        return;
+      }
+
+      navigate(link.to);
     };
 
     if (menuOpen) {
@@ -49,7 +69,7 @@ export default function Navbar() {
     } else {
       runScroll();
     }
-  }, [menuOpen, navigate]);
+  }, [location.pathname, menuOpen, navigate]);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -63,9 +83,11 @@ export default function Navbar() {
   }, [menuOpen]);
 
   useEffect(() => {
-    const hash = window.location.hash.slice(1);
-    if (hash) scrollToSection(hash);
-  }, []);
+    const hash = location.hash.slice(1);
+    if (hash) {
+      requestAnimationFrame(() => scrollToSection(hash));
+    }
+  }, [location.hash]);
 
   return (
     <>

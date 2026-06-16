@@ -50,10 +50,10 @@ export default function Contact() {
           Contact
         </span>
         <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary">
-          Reach out to us
+          Grow your brand with us
         </h2>
         <p className="mt-4 text-text-secondary text-lg">
-          Ready to grow your brand? Let's connect and build something exceptional together.
+          Have questions about our AI? Ready to sacle your views? Let's talk
         </p>
       </motion.div>
 

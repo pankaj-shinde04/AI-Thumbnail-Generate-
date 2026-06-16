@@ -1,24 +1,19 @@
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Features from './components/Features';
-import Testimonials from './components/Testimonials';
-import Pricing from './components/Pricing';
-import Contact from './components/Contact';
-import CtaBanner from './components/CtaBanner';
 import Footer from './components/Footer';
+import { Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import Generate from './pages/Generate';
+import MyGeneration from './pages/MyGeneration';
 
 export default function App() {
   return (
     <>
       <Navbar />
-      <main>
-        <Hero />
-        <Features />
-        <Testimonials />
-        <Pricing />
-        <Contact />
-        <CtaBanner />
-      </main>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/generate" element={<Generate />} />
+        <Route path="/my-generation" element={<MyGeneration />} />
+      </Routes>
       <Footer />
     </>
   );

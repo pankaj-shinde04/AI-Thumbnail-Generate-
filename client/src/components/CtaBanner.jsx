@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
-import { fadeUp, viewport } from '../lib/motion';
+import { fadeUp, viewport } from '../lib/motion';   
+import { useNavigate } from 'react-router-dom';
 
 export default function CtaBanner() {
+
+  const navigate = useNavigate();
   return (
     <motion.div
       initial="hidden"
@@ -21,7 +24,7 @@ export default function CtaBanner() {
           variants={fadeUp}
           className="font-heading text-2xl md:text-3xl lg:text-4xl font-bold text-gradient-cta"
         >
-          Ready to try-out this app?
+          Ready to go viral?
         </motion.h2>
         <motion.p
           initial="hidden"
@@ -31,7 +34,7 @@ export default function CtaBanner() {
           variants={fadeUp}
           className="mt-3 text-text-secondary text-lg"
         >
-          Your next favourite tool is just one click away.
+          Join thousands of creators who are using our AI-powered thumbnail.
         </motion.p>
       </div>
 
@@ -43,9 +46,10 @@ export default function CtaBanner() {
         variants={fadeUp}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.98 }}
+        onClick={() => navigate('/generate')}
         className="relative flex-shrink-0 px-8 py-3.5 rounded-full bg-primary hover:bg-primary-hover text-white font-semibold btn-glow transition-colors"
       >
-        Get Started
+        Generate your thumbnail
       </motion.button>
     </motion.div>
   );
