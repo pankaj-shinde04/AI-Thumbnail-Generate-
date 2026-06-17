@@ -168,9 +168,10 @@ export default function Navbar() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.35 }}
+              onClick={() => { setMenuOpen(false); navigate('/login'); }}
               className="mt-4 px-8 py-3 rounded-full bg-primary text-white font-semibold btn-glow"
             >
-              Start free trial
+              Get Started
             </motion.button>
             <button
               className="absolute top-6 right-6 p-2 text-text-primary"
